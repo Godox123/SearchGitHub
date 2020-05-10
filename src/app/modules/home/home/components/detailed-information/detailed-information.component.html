@@ -1,0 +1,25 @@
+<h1>Repository:</h1>
+
+<mat-tab-group>
+  <mat-tab label="Id">
+    <p>{{ (selectedRepositoryInformation$ | async).id }}</p>
+  </mat-tab>
+  <mat-tab label="Node_Id">
+    <p>{{ (selectedRepositoryInformation$ | async).node_id }}</p>
+  </mat-tab>
+  <mat-tab label="full_name">
+    <p>{{ (selectedRepositoryInformation$ | async).name }}</p>
+  </mat-tab>
+  <mat-tab label="created_at">
+    <p>{{ (selectedRepositoryInformation$ | async).created_at }}</p>
+  </mat-tab>
+  <mat-tab label="owner.login">
+    <p>{{ (selectedRepositoryInformation$ | async).owner.login }}</p>
+  </mat-tab>
+  <mat-tab label="owner.id">
+    <p>{{ (selectedRepositoryInformation$ | async).owner.id }}</p>
+  </mat-tab>
+  <mat-tab label="owner.node_id">
+    <p>{{ (selectedRepositoryInformation$ | async).owner.node_id }}</p>
+  </mat-tab>
+</mat-tab-group>

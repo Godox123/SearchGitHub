@@ -1,0 +1,67 @@
+<div class="body-response">
+  <div *ngIf="repositoriesList$ | async">
+    <button
+      (click)="sortLarger()"
+      class="sort-date"
+      mat-raised-button
+      color="primary"
+    >
+      Sort date +
+    </button>
+    <button
+      (click)="sortSmaller()"
+      class="sort-date"
+      mat-raised-button
+      color="primary"
+    >
+      Sort date -
+    </button>
+
+    <h1>Repositories:</h1>
+    <table
+      mat-table
+      [dataSource]="repositoriesList$ | async"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td
+          class="td"
+          (click)="selectRepository(repository)"
+          routerLink="/home/detailed"
+          mat-cell
+          *matCellDef="let repository"
+        >
+          {{ repository.id }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td
+          (click)="selectRepository(repository)"
+          routerLink="/home/detailed"
+          mat-cell
+          *matCellDef="let repository"
+        >
+          {{ repository.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef>created_at</th>
+        <td
+          (click)="selectRepository(repository)"
+          routerLink="/home/detailed"
+          mat-cell
+          *matCellDef="let repository"
+        >
+          {{ repository.created_at }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
